@@ -325,6 +325,9 @@ local function themeStep(bgColor, txtColor, olColor, lbgColor, lbgColor2)
 	                   else
 	                       child2.PropertyHalf.TextLabel.TextColor3 = txtColor
 	                   end
+	                   child2.SelectionHighlight.Image = ""
+	                   child2.MouseOverHighlight.Image = ""
+	                   child2.ValueHalf.BackgroundColor3 = bgColor
 	                   local valChildren = child2.ValueHalf:GetChildren()
 	                   for i, valChild in ipairs(valChildren) do
 	                        if valChild.ClassName == "TextLabel" or valChild.ClassName == "TextBox" then
@@ -485,6 +488,7 @@ function destroySelf()
     print("Goodbye!")
     render:Disconnect()
     pmClrConsole:Destroy()
+    pmGui:Destroy()
     closePotatoMod:Destroy()
     PotatoTab.Visible = false
     themeInit(Color3.fromRGB(240,240,240),Color3.fromRGB(0,0,0), Color3.fromRGB(130,135,144),
