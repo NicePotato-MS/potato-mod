@@ -121,6 +121,14 @@ end
 
 local function themeInit(bgColor, txtColor, olColor, lbgColor, lbgColor2)
     
+    --Code Editor
+    local CodeEditorLocal = CodeEditor.CodeManagerLocal.ScriptTemplate.CodeEditorLocal
+    CodeEditorLocal.BrickColorPalette.Image = ""
+    CodeEditorLocal.BrickColorPalette.BackgroundTransparency = 0
+    CodeEditorLocal.BrickColorPalette.BorderColor3 = olColor
+    CodeEditorLocal.BrickColorPalette.BackgroundColor3 = bgColor
+    CodeEditorLocal.BrickColorPalette.BorderSizePixel = 1
+    
     --Properties
     Properties.BackgroundColor3 = bgColor
     Properties.BorderColor3 = olColor
