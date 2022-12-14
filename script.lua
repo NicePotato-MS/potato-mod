@@ -134,6 +134,11 @@ local function themeInit(bgColor, txtColor, olColor, lbgColor, lbgColor2)
     Properties.ListOutline.PropertyList.BumpForHeader.BackgroundColor3 = bgColor
     Properties.IdentityBackground.ImageColor3 = lbgColor
     Properties.IdentityBackground.IdentityLabel.TextColor3 = txtColor
+    Properties.PropertiesScript.PropertyBrickColorPalette.Image = ""
+    Properties.PropertiesScript.PropertyBrickColorPalette.BackgroundTransparency = 0
+    Properties.PropertiesScript.PropertyBrickColorPalette.BorderColor3 = olColor
+    Properties.PropertiesScript.PropertyBrickColorPalette.BackgroundColor3 = bgColor
+    Properties.PropertiesScript.PropertyBrickColorPalette.BorderSizePixel = 1
     local children =  Properties.PropertiesScript.CategoryItem:GetChildren()
     for i, child in ipairs(children) do
 	   if(child.Name == "Outline") then
