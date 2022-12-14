@@ -245,6 +245,11 @@ local function themeInit(bgColor, txtColor, olColor, lbgColor, lbgColor2)
     TitleBar.CloseButton.Visible = false
     
     --ToolBar
+    ToolBar.Tools.Color.ColorPaletteTemplate.Image = ""
+    ToolBar.Tools.Color.ColorPaletteTemplate.BackgroundTransparency = 0
+    ToolBar.Tools.Color.ColorPaletteTemplate.BorderColor3 = olColor
+    ToolBar.Tools.Color.ColorPaletteTemplate.BackgroundColor3 = bgColor
+    ToolBar.Tools.Color.ColorPaletteTemplate.BorderSizePixel = 1
     ToolBar.ImageTransparency = 1
     ToolBar.BackgroundColor3 = bgColor
     ToolBar.BorderColor3 = olColor
