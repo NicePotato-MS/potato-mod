@@ -57,19 +57,20 @@ if (debug == 1) then
 end
 print("Potato Mod initializing...")
 
+--TODO fix this so it doesn't mess up the script editor
 -- Delete the auto save Popup
-if StudioGui:FindFirstChild("SaveReminder") then StudioGui:FindFirstChild("SaveReminder"):Destroy() end
+--if StudioGui:FindFirstChild("SaveReminder") then StudioGui:FindFirstChild("SaveReminder"):Destroy() end
 
 -- Check for previous script running --
 if StudioGui:FindFirstChild("PotatoMod") then
     print("Oops! It seems there is already an instace of this script running.")
     Script:Destroy()
 else
-    pmGui = Instance.new("Frame")
-    pmGui.Parent = StudioGui
-    pmGui.Name = "PotatoMod"
+    PmGui = Instance.new("Frame")
+    PmGui.Parent = StudioGui
+    PmGui.Name = "PotatoMod"
     pmDestroy = Instance.new("BoolValue")
-    pmDestroy.Parent = pmGui
+    pmDestroy.Parent = PmGui
     pmDestroy.Name = "Destroy"
 end
 
@@ -91,32 +92,37 @@ end
 
 local function customGuiInit(bgColor, txtColor, olColor, lbgColor, lbgColor2)
     --Custom Gui
-    pmClrConsole = Instance.new("TextButton")
-    pmClrConsole.Parent = Output.ListOutline
-    pmClrConsole.Name = "ClrConsole"
-    pmClrConsole.BackgroundColor3 = lbgColor
-    pmClrConsole.BorderColor3 = olColor
-    pmClrConsole.ZIndex = 3
-    pmClrConsole.Text = "Clear Console"
-    pmClrConsole.TextColor3 = txtColor
-    pmClrConsole.Size = UDim2.new(0,80,0,20)
-    pmClrConsole.Position = UDim2.new(1,-100,0,0)
-    pmClrConsole.Font = "SourceSans"
-    pmClrConsole.TextSize = 14
+    PmClrConsole = Instance.new("TextButton")
+    PmClrConsole.Parent = Output.ListOutline
+    PmClrConsole.Name = "ClrConsole"
+    PmClrConsole.BackgroundColor3 = lbgColor
+    PmClrConsole.BorderColor3 = olColor
+    PmClrConsole.ZIndex = 3
+    PmClrConsole.Text = "Clear Console"
+    PmClrConsole.TextColor3 = txtColor
+    PmClrConsole.Size = UDim2.new(0,80,0,20)
+    PmClrConsole.Position = UDim2.new(1,-100,0,0)
+    PmClrConsole.Font = "SourceSans"
+    PmClrConsole.TextSize = 14
     PotatoTab.TextLabel.Text = "PotatoMod"
     PotatoTab.Visible = true
     PotatoTab.MenuFrame.Size = UDim2.new(0,86,0,26)
-    closePotatoMod = Instance.new("TextButton")
-    closePotatoMod.Parent = PotatoTab.MenuFrame
-    closePotatoMod.ZIndex = 3
-    closePotatoMod.BackgroundColor3 = lbgColor
-    closePotatoMod.BorderColor3 = olColor
-    closePotatoMod.Size = UDim2.new(0,80,0,20)
-    closePotatoMod.Position = UDim2.new(0,2,0,2)
-    closePotatoMod.TextColor3 = txtColor
-    closePotatoMod.Text = "Exit PotatoMod"
-    closePotatoMod.Font = "SourceSans"
-    closePotatoMod.TextSize = 14
+    ClosePotatoMod = Instance.new("TextButton")
+    ClosePotatoMod.Parent = PotatoTab.MenuFrame
+    ClosePotatoMod.ZIndex = 3
+    ClosePotatoMod.BackgroundColor3 = lbgColor
+    ClosePotatoMod.BorderColor3 = olColor
+    ClosePotatoMod.Size = UDim2.new(0,80,0,20)
+    ClosePotatoMod.Position = UDim2.new(0,2,0,2)
+    ClosePotatoMod.TextColor3 = txtColor
+    ClosePotatoMod.Text = "Exit PotatoMod"
+    ClosePotatoMod.Font = "SourceSans"
+    ClosePotatoMod.TextSize = 14
+    GuiEditor = Instance.new("Frame")
+    GuiEditor.Parent = PmGui
+    GuiEditor.Name = "GuiEditor"
+    GuiEditor.Size = UDim2.new(1,0,1,0)
+    GuiEditor.BackgroundTransparency = 1
 end
 
 local function themeInit(bgColor, txtColor, olColor, lbgColor, lbgColor2)
@@ -501,9 +507,9 @@ end
 function destroySelf()
     print("Goodbye!")
     render:Disconnect()
-    pmClrConsole:Destroy()
-    pmGui:Destroy()
-    closePotatoMod:Destroy()
+    PmClrConsole:Destroy()
+    PmGui:Destroy()
+    ClosePotatoMod:Destroy()
     PotatoTab.Visible = false
     themeInit(Color3.fromRGB(240,240,240),Color3.fromRGB(0,0,0), Color3.fromRGB(130,135,144),
         Color3.fromRGB(185,185,185), Color3.fromRGB(185,185,185))
@@ -554,5 +560,5 @@ themeInit(DarkBack, WhiteText, Outline, LightBack, LightBack2)
 customGuiInit(DarkBack, WhiteText, Outline, LightBack, LightBack2)
 
 render = RunService.Stepped:Connect(renderStepped)
-pmClrConsole.MouseButton1Click:Connect(clearConsole)
-closePotatoMod.MouseButton1Click:Connect(destroySelf)
+PmClrConsole.MouseButton1Click:Connect(clearConsole)
+ClosePotatoMod.MouseButton1Click:Connect(destroySelf)
