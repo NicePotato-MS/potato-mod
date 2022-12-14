@@ -317,17 +317,18 @@ local function themeStep(bgColor, txtColor, olColor, lbgColor, lbgColor2)
 	        for i, child2 in ipairs(children2) do
 	           if(child2.ClassName == "Frame") then
 	               if child2.Name == "1Topbar" then
+	                   child2.HoverGlow.Image = ""
 	                  child2.BackgroundColor3 = lbgColor
 	                  child2.CategoryName.TextColor3 = txtColor
 	               else
+	                   child2.SelectionHighlight.Image = ""
+	                child2.MouseOverHighlight.Image = ""
+	                   child2.ValueHalf.BackgroundColor3 = bgColor
 	                   if child2.PropertyHalf.TextLabel.TextColor3 == Color3.fromRGB(128,128,128) then
 	                        --do nothing 
 	                   else
 	                       child2.PropertyHalf.TextLabel.TextColor3 = txtColor
 	                   end
-	                   child2.SelectionHighlight.Image = ""
-	                   child2.MouseOverHighlight.Image = ""
-	                   child2.ValueHalf.BackgroundColor3 = bgColor
 	                   local valChildren = child2.ValueHalf:GetChildren()
 	                   for i, valChild in ipairs(valChildren) do
 	                        if valChild.ClassName == "TextLabel" or valChild.ClassName == "TextBox" then
