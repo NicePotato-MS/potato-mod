@@ -1,8 +1,10 @@
 -- Retrostudio Potato Mod prerelease v0.1.0
 debug = 0 -- debug mode, contains features that the average consumer may not need
 
+
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+--if Players.LocalPlayer.Name == "RULLY84726" then debug=1 end
 
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer.PlayerGui
@@ -148,6 +150,13 @@ local function themeInit(bgColor, txtColor, olColor, lbgColor, lbgColor2)
     Properties.ListOutline.PropertyList.BumpForHeader.BackgroundColor3 = bgColor
     Properties.IdentityBackground.ImageColor3 = lbgColor
     Properties.IdentityBackground.IdentityLabel.TextColor3 = txtColor
+    Properties.PropertiesScript.EnumList.Image = ""
+    Properties.PropertiesScript.EnumList.BackgroundTransparency = 0
+    Properties.PropertiesScript.EnumList.BackgroundColor3 = olColor
+    Properties.PropertiesScript.EnumList.ScrollingFrame.BackgroundColor3 = bgColor
+    Properties.PropertiesScript.EnumList.ScrollingFrame.ListItem.BackgroundColor3 = bgColor
+    Properties.PropertiesScript.EnumList.ScrollingFrame.ListItem.TextColor3 = txtColor
+    Properties.PropertiesScript.EnumList.ScrollingFrame.ListItem.TextLabel.TextColor3 = txtColor
     Properties.PropertiesScript.PropertyBrickColorPalette.Image = ""
     Properties.PropertiesScript.PropertyBrickColorPalette.BackgroundTransparency = 0
     Properties.PropertiesScript.PropertyBrickColorPalette.BorderColor3 = olColor
